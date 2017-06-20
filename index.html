@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>ng-easy-tree</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/ng-easy-tree.css">
+  </head>
+  <body ng-controller="ctrl"><br><br>
+
+    <style media="screen">
+      body{
+        background: #f5f5f5;
+      }
+    </style>
+
+    <main>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+
+
+            <easy-tree ng-model="pessoas" children="filhos">
+              <span>{{$child.name}}</span>
+            </easy-tree>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript" src="dist/ng-easy-tree.js"></script>
+
+    <script type="text/javascript">
+      angular.module('app', ['ngEasyTree']).controller('ctrl', function($scope, $timeout){
+
+        $scope.pessoas = [
+          {
+            name: "Mateus",
+            filhos: [
+              {
+                name: "Mateusinho",
+                filhos: [
+                  {
+                    name: "Teteu junior"
+                  }
+                ]
+              },
+              {
+                name: "Talitinha"
+              }
+            ]
+          },
+          {
+            name: "Willian",
+            filhos: [
+              {
+                filhos: [
+                  {
+                    name: "Cagao"
+                  }
+                ]
+              },
+              {
+                name: "Undefinedinha"
+              }
+            ]
+          }
+        ]
+
+
+      })
+    </script>
+
+  </body>
+</html>
