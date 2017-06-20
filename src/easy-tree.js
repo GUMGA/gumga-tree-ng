@@ -3,8 +3,8 @@ const EasyTree = {
   transclude: true,
   template:  `
     <div >
-      <div ng-repeat="$value in $ctrl.ngModel track by $index">
-        <easy-tree-child child="$value" field="{{$ctrl.children}}">
+      <div ng-repeat="$value in $ctrl.ngModel">
+        <easy-tree-child child="$value" parent="$ctrl.ngModel" field="{{$ctrl.children}}">
           <ng-transclude></ng-transclude>
         </easy-tree-child>
       </div>

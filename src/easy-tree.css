@@ -10,7 +10,7 @@ easy-tree easy-tree-child > div {
   padding-left: 15px;
 }
 
-easy-tree easy-tree-child .item-child {
+easy-tree easy-tree-child .easy-tree-item-child {
   width: 100%;
   min-height: 40px;
   color: #262626;
@@ -22,4 +22,29 @@ easy-tree easy-tree-child .item-child {
   display: -webkit-flex;
   display: flex;
   align-items: center;
+}
+
+easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-down{
+  padding: 6px 5px 5px 6px;
+}
+
+easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-right{
+  padding: 5px 5px 5px 5px;
+}
+
+/*easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-right:hover{
+  transition: 0.5s;
+  transform: rotate(90deg);
+  padding: 5px 5px 5px 5px;
+}*/
+
+easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-right, easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-down{
+  margin: 0 10px 0 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-right:hover, easy-tree easy-tree-child .easy-tree-item-child .glyphicon-chevron-down:hover{
+  background: rgba(97, 95, 95, 0.12);
 }
