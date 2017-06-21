@@ -12,7 +12,8 @@ module.exports = function(config) {
 
     files: [
       'node_modules/angular/angular.min.js',
-      'dist/'+baseName+'.min.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'dist/ng-easy-tree.min.js',
       'test/test.js'
     ],
 
@@ -42,7 +43,6 @@ module.exports = function(config) {
           filename: baseName + '.min.js'
       },
       plugins: [
-          new UglifyJSPlugin(),
           new ExtractTextPlugin({
               filename: baseName + ".min.css",
               allChunks: true
@@ -81,9 +81,18 @@ module.exports = function(config) {
 
     colors: true,
 
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_WARN,
 
     autoWatch: true,
+
+    node: {
+      global: true,
+      crypto: 'empty',
+      process: true,
+      module: true,
+      clearImmediate: false,
+      setImmediate: false
+    },
 
     jshintPreprocessor: {
       jshintrc: './.jshintrc'
