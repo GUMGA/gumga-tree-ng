@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43c526df-2a4f-4fdc-8ec9-bf3a2309f150" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/easy-tree-child.js" afterPath="$PROJECT_DIR$/src/easy-tree-child.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="easy-tree-child.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="easy-tree-child.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/easy-tree-child.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
@@ -38,6 +38,16 @@
                 <marker date="1512500152265" expanded="true" signature="360:499" ph="..." />
                 <marker date="1512500152265" expanded="true" signature="594:857" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,6 +67,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/easy-tree-child.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -140,12 +151,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512499141709</updated>
-      <workItem from="1512499143555" duration="1009000" />
+      <workItem from="1512499143555" duration="1053000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1009000" />
+    <option name="totallyTimeSpent" value="1053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -221,6 +232,14 @@
             <marker date="1512500152265" expanded="true" signature="360:499" ph="..." />
             <marker date="1512500152265" expanded="true" signature="594:857" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
