@@ -1,81 +1,142 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>ng-easy-tree</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="dist/ng-easy-tree.css">
-  </head>
-  <body ng-controller="ctrl"><br><br>
+</head>
+<body ng-controller="ctrl"><br><br>
 
-    <style media="screen">
-      body{
+<style media="screen">
+    body {
         background: #f5f5f5;
-      }
-    </style>
+    }
+</style>
 
-    <main>
-      <div class="container">
+<main>
+    <div class="container">
 
         <div class="row">
-          <div class="col-md-6">
+            <div class="col-md-6">
 
-            <easy-tree ng-model="pessoas" children="filhos">
-              <span>{{$child.name}}</span>
-            </easy-tree>
+                <easy-tree ng-model="pessoas" children="filhos" options="options">
+                    <div style="width: 200px">
+                        <span>{{$child.name}}</span>
+                        <button ng-click="cliquei($child)" style="float: right;">CLIQUE</button>
+                    </div>
+                </easy-tree>
 
-          </div>
+            </div>
 
-          <div class="col-md-6">
+            <div class="col-md-6">
 
-            <pre>{{pessoas|json}}</pre>
+                <pre>{{pessoas|json}}</pre>
 
-          </div>
+            </div>
+            <div class="col-mg-2">
+                <button ng-click="coloca()">Coloca</button>
+                <button ng-click="adiciona()">Adiciona</button>
+                <button ng-click="options.actions.toggleAll()">Toogle all</button>
+                <button ng-click="options.actions.removeAll()">Remove all</button>
+            </div>
 
         </div>
 
-      </div>
-    </main>
+    </div>
+</main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script type="text/javascript" src="dist/ng-easy-tree.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript" src="dist/ng-easy-tree.js"></script>
 
-    <script type="text/javascript">
-      angular.module('app', ['ngEasyTree']).controller('ctrl', function($scope, $timeout){
+<script type="text/javascript">
+    angular.module('app', ['ngEasyTree']).controller('ctrl', function ($scope, $timeout) {
+
+        $scope.options = {
+            events: {
+                toogle: () => {
+                    console.log("gusdbh")
+                }
+            },
+            actions: {
+                maxDepth: 3
+            }
+        };
+
+        $timeout(function() {
+            $scope.options.actions.toggleAll()
+        console.log()
+        })
 
         $scope.pessoas = [
-          {
-            name: 'Maria',
-            filhos: [
-              {
-                name: "Regina",
+            {
+                name: 'Maria',
                 filhos: [
-                  {
-                    name: "Mateus"
-                  }
+                    {
+                        name: "Regina",
+                        filhos: [
+                            {
+                                name: "Mateus"
+                            }
+                        ]
+                    }
                 ]
-              }
-            ]
-          },
-          {
-            name: "Sonia",
-            filhos: [
-              {
-                name: "Lucas"
-              },
-              {
-                name: "Mariana"
-              }
-            ]
-          }
+            },
+            {
+                name: "Sonia",
+                filhos: [
+                    {
+                        name: "Lucas"
+                    },
+                    {
+                        name: "Mariana"
+                    }
+                ]
+            }
         ]
 
 
-      })
-    </script>
+        $scope.coloca = () => {
+            $scope.pessoas.push({
+                name: "Joaquem",
+                filhos: [
+                    {
+                        name: "Rose"
+                    },
+                    {
+                        name: "Mora"
+                    }
+                ]
+            })
+        }
 
-  </body>
+
+        $scope.adiciona = () => {
+            $scope.pessoas[0].filhos.push({
+                name: "Teste1",
+                filhos: [
+                    {
+                        name: "Teste2"
+                    },
+                    {
+                        name: "Teste3"
+                    }
+                ]
+            })
+        }
+
+        $scope.cliquei = ($child) => {
+            $child.filhos.push({
+                name: "Inserindo"
+            })
+            console.log($child)
+        }
+
+    })
+</script>
+
+</body>
 </html>

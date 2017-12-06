@@ -1,0 +1,24 @@
+{
+  "name": "ng-easy-tree",
+  "version": "1.0.0",
+  "description": "ng-easy-tree",
+  "main": "./src/index.js",
+  "authors": [
+    "Gumga S/A"
+  ],
+  "license": "LGPL-3.0",
+  "keywords": [
+    "gumga",
+    "controller",
+    "angular",
+    "1.x"
+  ],
+  "homepage": "https://github.com/GUMGA/ng-easy-tree",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
