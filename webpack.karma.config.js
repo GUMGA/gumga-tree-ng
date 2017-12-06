@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-const baseName = "ng-easy-tree";
+const baseName = "gumga-tree-ng";
 
 module.exports = function(config) {
   config.set({
@@ -13,7 +13,7 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'dist/ng-easy-tree.min.js',
+      'dist/gumga-tree-ng.min.js',
       'test/test.js'
     ],
 

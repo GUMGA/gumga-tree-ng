@@ -1,0 +1,67 @@
+gumga-tree-ng > div {
+  width: 100%;
+  min-height: 200px;
+  background: #FFFFFF;
+  border: 1px dashed #CCCCCC;
+  padding: 0 15px 15px 0px;
+}
+
+gumga-tree-ng gumga-tree-ng-child > div {
+  padding-left: 15px;
+}
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child {
+  width: 100%;
+  min-height: 40px;
+  color: #666;
+  text-decoration: none;
+  background-color: #f5f5f5;
+  font-weight: 600;
+  margin: 15px 0 0 0px;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-down{
+  padding: 6px 5px 5px 6px;
+}
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-right{
+  padding: 5px 5px 5px 5px;
+}
+
+/*gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-right:hover{
+  transition: 0.5s;
+  transform: rotate(90deg);
+  padding: 5px 5px 5px 5px;
+}*/
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-right, gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-down{
+  margin: 0 0px 0 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-right:hover, gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child .glyphicon-chevron-down:hover{
+  background: rgba(97, 95, 95, 0.12);
+}
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-over {
+  border: 1px dashed #858585;
+}
+
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-opacity {
+  opacity: 0.4;
+}
+
+gumga-tree-ng .gumga-tree-ng-item-child > ng-transclude {
+  padding: 10px;
+}
+
+
+/*# sourceMappingURL=gumga-tree-ng.min.css.map*/

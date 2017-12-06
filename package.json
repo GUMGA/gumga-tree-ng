@@ -1,7 +1,7 @@
 {
-  "name": "ng-easy-tree",
+  "name": "gumga-tree-ng",
   "version": "1.0.0",
-  "description": "ng-easy-tree",
+  "description": "gumga-tree-ng",
   "main": "./src/index.js",
   "directories": {
     "example": "example"

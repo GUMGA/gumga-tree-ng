@@ -2,7 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-const baseName = "ng-easy-tree";
+const baseName = "gumga-tree-ng";
 const isProduction = () => process.env.NODE_ENV == 'production';
 
 const extractSass = new ExtractTextPlugin({
