@@ -1,7 +1,12 @@
 const _ = require('lodash');
 
 const TEMPLATE = `
-  <div>
+  <style>
+    .gumga-tree-over {
+        border: 2px dashed #000;
+    }
+  </style>
+  <div class="easy-tree-item">
 
     <div class="easy-tree-item-child" draggable="true">
       <span class="glyphicon glyphicon-chevron-right"
@@ -18,7 +23,7 @@ const TEMPLATE = `
                      child="$value"
                      parent="$ctrl.child.filhos"
                      field="{{$ctrl.field}}">
-      <ng-transclude></ng-transclude>
+      <ng-transclude class="easy-tree-item-child-transclude"></ng-transclude>
     </easy-tree-child>
 
   </div>
@@ -49,17 +54,40 @@ const EasyTreeChild = {
                     })
                 }
             }
-        }
+        };
 
         const getScopeItemChild = (elm) => {
-            if (elm.nodeName == 'DIV' && elm.classList.contains('easy-tree-item-child')) {
-                return angular.element(elm).scope();
+            if (elm) {
+                if (elm.nodeName == 'DIV' && elm.classList.contains('easy-tree-item-child')) {
+                    return angular.element(elm).scope();
+                } else {
+                    return getScopeItemChild(elm.parentNode);
+                }
             } else {
-                return getScopeItemChild(elm.parentNode);
+                return angular.element($element.find('.easy-tree-item')[0].parentNode).scope().$parent
             }
-        }
+        };
 
-        $element.find('.easy-tree-item-child').bind('dragenter', function (e) {
+        const containsChild = (dropChilds) => {
+            return dropChilds.filter(elm => elm == ctrl.easyTreeCtrl.dragging.$child).length > 0
+        };
+
+        const itsWhatsMoving = (elm) => {
+            return ctrl.easyTreeCtrl.dragging.$child === elm
+        };
+
+        const addDraggedIn = (dropChilds) => {
+            dropChilds.push(angular.copy(ctrl.easyTreeCtrl.dragging.$child));
+            if (Array.isArray(ctrl.easyTreeCtrl.dragging['$ctrl'].parent)) {
+                ctrl.easyTreeCtrl.dragging['$ctrl'].parent = ctrl.easyTreeCtrl.dragging['$ctrl'].parent
+                    .filter(itemParent => {
+                        return !angular.equals(itemParent, ctrl.easyTreeCtrl.dragging.$child);
+                    });
+            }
+            delete ctrl.easyTreeCtrl.dragging;
+        };
+
+        $element.find('.easy-tree-item-child, .easy-tree-item').bind('dragenter', function (e) {
             e.stopPropagation();
             e.preventDefault();
             if (!ctrl.easyTreeCtrl.dragging) {
@@ -67,34 +95,41 @@ const EasyTreeChild = {
             }
         });
 
-        $element.find('.easy-tree-item-child').bind('dragleave', function (e) {
+        $element.find('.easy-tree-item-child, .easy-tree-item').bind('dragleave', function (e) {
             e.stopPropagation();
             e.preventDefault();
         });
 
-        $element.find('.easy-tree-item-child').bind('dragover', function (e) {
+        // $element.find('.easy-tree-item-child, .easy-tree-item').bind('dragend', function (e) {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     console.log('aqui',angular.element('.easy-tree-item-child'))
+        //     angular.element('.easy-tree-item-child').removeClass('gumga-tree-over')
+        //     // angular.element(e.target).find('.easy-tree-item-child').addClass('gumga-tree-over');
+        // });
+
+        $element.find('.easy-tree-item-child, .easy-tree-item').bind('dragover', function (e) {
+            angular.element('.easy-tree-item-child').removeClass('gumga-tree-over')
+            let elm = angular.element(e.target);
+            if (elm.hasClass('easy-tree-item-child')) {
+                elm.addClass('gumga-tree-over')
+            } else if (elm.parent().hasClass('easy-tree-item-child')){
+                elm.parent().addClass('gumga-tree-over')
+            }
             e.stopPropagation();
             e.preventDefault();
         });
 
-        $element.find('.easy-tree-item-child').bind('drop', function (e) {
+        $element.find('.easy-tree-item-child, .easy-tree-item').bind('drop', function (e) {
             e.stopPropagation();
             e.preventDefault();
+            angular.element('.easy-tree-item-child').removeClass('gumga-tree-over')
             if (ctrl.easyTreeCtrl.dragging) {
                 $timeout(() => {
                     const dropScope = getScopeItemChild(e.target);
                     let dropChilds = dropScope['$ctrl'].getChilds(dropScope.$ctrl.field);
-                    // console.log("foi", dropScope);
-                    // TODO RESOLVER QUANDO DROPA PRO ALEM
-                    if (!dropChilds.filter(elm => elm == ctrl.easyTreeCtrl.dragging.$child).length > 0) {
-                        dropChilds.push(angular.copy(ctrl.easyTreeCtrl.dragging.$child));
-                        if (Array.isArray(ctrl.easyTreeCtrl.dragging['$ctrl'].parent)) {
-                            ctrl.easyTreeCtrl.dragging['$ctrl'].parent = ctrl.easyTreeCtrl.dragging['$ctrl'].parent
-                                .filter(itemParent => {
-                                    return !angular.equals(itemParent, ctrl.easyTreeCtrl.dragging.$child);
-                                });
-                        }
-                        delete ctrl.easyTreeCtrl.dragging;
+                    if (!containsChild(dropChilds) && !itsWhatsMoving(dropScope.$parent.$value)) {
+                        addDraggedIn(dropChilds);
                     }
                 });
             }

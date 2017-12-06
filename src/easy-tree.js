@@ -20,6 +20,10 @@ const EasyTree = {
     ctrl.$onInit = () => {
     }
 
+    ctrl.getChilds = () => {
+      return ctrl.ngModel
+    }
+
   }]
 }
 
