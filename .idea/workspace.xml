@@ -1,96 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="43c526df-2a4f-4fdc-8ec9-bf3a2309f150" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/ng-easy-tree.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/ng-easy-tree.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/ng-easy-tree.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgrayblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgraycarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgraygreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgrayorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgraypurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgrayteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.darkgrayviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgrayblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgraycarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgraygreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgrayorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgraypurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgrayteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.lightgrayviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgrayblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgraycarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgraygreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgrayorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgraypurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgrayteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.verydarkgrayviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whiteblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whitecarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whitegreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whiteorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whitepurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whiteteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.designer.office2013.whiteviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2003.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2007.black.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2007.blue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2007.silver.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2010.black.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2010.blue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2010.silver.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgrayblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgraycarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgraygreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgrayorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgraypurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgrayteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.darkgrayviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgrayblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgraycarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgraygreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgrayorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgraypurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgrayteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.lightgrayviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgrayblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgraycarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgraygreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgrayorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgraypurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgrayteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.verydarkgrayviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whiteblue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whitecarmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whitegreen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whiteorange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whitepurple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whiteteal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.office2013.whiteviolet.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.simple.gray.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.windows7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/css/stimulsoft.viewer.windowsxp.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.designer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.designer.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.reports.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.reports.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.reports.maps.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.reports.maps.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.reports.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.viewer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/js/stimulsoft.viewer.pack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/1.0.0/dist/stimulsoft/langs/pt-BR.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/easy-tree-child.js" afterPath="$PROJECT_DIR$/src/gumga-tree-ng-child.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/easy-tree.css" afterPath="$PROJECT_DIR$/src/gumga-tree-ng.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/easy-tree.js" afterPath="$PROJECT_DIR$/src/gumga-tree-ng.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.karma.config.js" afterPath="$PROJECT_DIR$/webpack.karma.config.js" />
-    </list>
+    <list default="true" id="43c526df-2a4f-4fdc-8ec9-bf3a2309f150" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -358,12 +269,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512499141709</updated>
-      <workItem from="1512499143555" duration="39863000" />
+      <workItem from="1512499143555" duration="39898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39863000" />
+    <option name="totallyTimeSpent" value="39898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
