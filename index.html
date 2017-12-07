@@ -38,7 +38,7 @@
             <div class="col-mg-2">
                 <button ng-click="coloca()">Coloca</button>
                 <button ng-click="adiciona()">Adiciona</button>
-                <button ng-click="options.actions.toggleAll()">Toogle all</button>
+                <button ng-click="options.actions.toggleAll()">Toggle all</button>
                 <button ng-click="options.actions.removeAll()">Remove all</button>
             </div>
 
@@ -57,18 +57,22 @@
 
         $scope.options = {
             events: {
-                toogle: () => {
+                toggle: () => {
                     console.log("gusdbh")
                 }
             },
             actions: {
                 maxDepth: 3
+            },
+            conditions: {
+                disabled: (child) => {
+                    return child.name == 'Sonia';
+                }
             }
         };
 
         $timeout(function() {
             $scope.options.actions.toggleAll()
-        console.log()
         })
 
         $scope.pessoas = [

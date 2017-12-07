@@ -3,13 +3,13 @@ const _ = require('lodash');
 const TEMPLATE = `
   <div class="gumga-tree-ng-item">
 
-    <div class="gumga-tree-ng-item-child" draggable="true">
+    <div class="gumga-tree-ng-item-child" draggable="{{!$ctrl.gumgaTreeNgCtrl.options.conditions.disabled($ctrl.child)}}">
       <span class="glyphicon glyphicon-chevron-right"
             ng-show="$ctrl.getChilds($ctrl.field).length > 0 && !($ctrl.opened)"
-            data-ng-click="$ctrl.toogleChild(true);"></span>
+            data-ng-click="$ctrl.toggleChild(true);"></span>
       <span class="glyphicon glyphicon-chevron-down"
             ng-show="$ctrl.getChilds($ctrl.field).length > 0 && ($ctrl.opened)"
-            data-ng-click="$ctrl.toogleChild(false);"></span>
+            data-ng-click="$ctrl.toggleChild(false);"></span>
       <ng-transclude></ng-transclude>
     </div>
 
@@ -157,18 +157,27 @@ const GumgaTreeNgChild = {
         $element.find('.gumga-tree-ng-item-child, .gumga-tree-ng-item').bind('drop', function (e) {
             e.stopPropagation();
             e.preventDefault();
-            if (ctrl.gumgaTreeNgCtrl.options.actions.disableDrop || ctrl.gumgaTreeNgCtrl.depth(ctrl.gumgaTreeNgCtrl.dragging) >= ctrl.gumgaTreeNgCtrl.options.actions.maxDepth) return;
+            if (ctrl.gumgaTreeNgCtrl.options.actions.disableDrop) return;
             angular.element('.gumga-tree-ng-item-child').removeClass('gumga-tree-over');
             angular.element('.gumga-tree-ng-item-child').removeClass('gumga-tree-opacity');
 
             if (ctrl.gumgaTreeNgCtrl.dragging) {
                 $timeout(() => {
                     const dropScope = getScopeItemChild(e.target);
-                    ctrl.gumgaTreeNgCtrl.options.events.beforeDrop({$child: dropScope.$child, $parent: dropScope.$parent});
-                    let dropChilds = dropScope['$ctrl'].getChilds(dropScope.$ctrl.field);
-                    if (!containsChild(dropChilds) && !itsWhatsMoving(dropScope.$parent.$value) && !isParentFrom(ctrl.gumgaTreeNgCtrl.dragging, dropScope)) {
-                        let dropped = addDroppedIn(dropChilds);
-                        ctrl.gumgaTreeNgCtrl.options.events.afterDrop({$child: dropped, $parent: angular.element(e.target).scope()});
+                    if (!(ctrl.gumgaTreeNgCtrl.depth(dropScope) >= ctrl.gumgaTreeNgCtrl.options.actions.maxDepth)) {
+
+                        ctrl.gumgaTreeNgCtrl.options.events.beforeDrop({
+                            $child: dropScope.$child,
+                            $parent: dropScope.$parent
+                        });
+                        let dropChilds = dropScope['$ctrl'].getChilds(dropScope.$ctrl.field);
+                        if (!containsChild(dropChilds) && !itsWhatsMoving(dropScope.$parent.$value) && !isParentFrom(ctrl.gumgaTreeNgCtrl.dragging, dropScope)) {
+                            let dropped = addDroppedIn(dropChilds);
+                            ctrl.gumgaTreeNgCtrl.options.events.afterDrop({
+                                $child: dropped,
+                                $parent: angular.element(e.target).scope()
+                            });
+                        }
                     }
                 });
             }
@@ -179,10 +188,10 @@ const GumgaTreeNgChild = {
             $timeout(() => applyScope($element.find('ng-transclude')));
         }
 
-        ctrl.toogleChild = opened => {
+        ctrl.toggleChild = opened => {
             ctrl.gumgaTreeNgCtrl.options.events.beforeToggle({$ctrl: ctrl});
             ctrl.opened = opened;
-            ctrl.gumgaTreeNgCtrl.options.events.toogle({$ctrl: ctrl});
+            ctrl.gumgaTreeNgCtrl.options.events.toggle({$ctrl: ctrl});
         }
 
         ctrl.getDynamicAttribute = (obj, prop) => _.get(obj, prop);

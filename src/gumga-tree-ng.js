@@ -32,7 +32,7 @@ const GumgaTreeNg = {
                     beforeDragOver: (obj) => {},
                     afterDragOver: (obj) => {},
                     beforeToggle: (ctrl) => {},
-                    toogle: (ctrl) => {}
+                    toggle: (ctrl) => {}
                 },
                 actions: {
                     disableDrag: false,
@@ -44,6 +44,9 @@ const GumgaTreeNg = {
                     expand: ctrl.expand,
                     removeAll: ctrl.removeAll,
                     scope: ctrl.scope
+                },
+                conditions: {
+                    disabled: () => false
                 }
             }, ctrl.options);
         };
@@ -81,7 +84,7 @@ const GumgaTreeNg = {
 
         ctrl.scope = () => {
             return $element.find('.gumga-tree-ng-item-child').scope()
-        }
+        };
 
     }]
 }

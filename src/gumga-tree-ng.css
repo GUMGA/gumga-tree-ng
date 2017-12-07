@@ -10,6 +10,13 @@ gumga-tree-ng gumga-tree-ng-child > div {
   padding-left: 15px;
 }
 
+gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child[draggable="false"]{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child {
   width: 100%;
   min-height: 40px;
