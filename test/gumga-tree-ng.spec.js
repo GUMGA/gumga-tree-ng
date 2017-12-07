@@ -1,8 +1,8 @@
-describe('EasyTreeSpect', function(){
+describe('GumgaTreeSpec', function(){
   const mox = angular.mock;
 
   beforeEach(function(){
-    mox.module('ngEasyTree')
+    mox.module('gumga.tree')
   });
 
   beforeEach(inject(function($compile, $rootScope) {
