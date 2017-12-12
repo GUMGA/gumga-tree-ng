@@ -2,7 +2,7 @@ window.APILocation = {
   APILocation: 'http://minha-api'
 }
 angular.module('app', ['gumga.tree'])
-  .controller('Ctrl', function ($http, $timeout) {
+  .controller('Ctrl', function ($http, $timeout, $scope) {
     var ctrl = this;
 
     $http.get('https://api.github.com/repos/gumga/gumga-tree-ng/releases')
@@ -50,10 +50,32 @@ angular.module('app', ['gumga.tree'])
           }
       ]
 
+      ctrl.pessoas2 = [
+          {
+              name: 'Maria',
+              filhos: [
+                  {
+                      name: "Regina"
+                  }
+              ]
+          },
+          {
+              name: "Bloqueado",
+              filhos: [
+                  {
+                      name: "Lucas"
+                  },
+                  {
+                      name: "Mariana"
+                  }
+              ]
+          }
+      ]
+
 
       ctrl.coloca = () => {
           ctrl.pessoas.push({
-              name: "Joaquem",
+              name: "Joaquim",
               filhos: [
                   {
                       name: "Rose"
@@ -68,13 +90,13 @@ angular.module('app', ['gumga.tree'])
 
       ctrl.adiciona = () => {
           ctrl.pessoas[0].filhos.push({
-              name: "Teste1",
+              name: "Pessoa 1",
               filhos: [
                   {
-                      name: "Teste2"
+                      name: "Pessoa 2"
                   },
                   {
-                      name: "Teste3"
+                      name: "Pessoa 3"
                   }
               ]
           })
@@ -82,8 +104,20 @@ angular.module('app', ['gumga.tree'])
 
       ctrl.cliquei = ($child) => {
           $child.filhos.push({
-              name: "Inserindo"
+              name: "Nova Pessoa"
           })
       }
+
+      ctrl.random = function() {
+          return "img/" + Math.round(Math.random() * 7) + ".png";
+      }
+
+      $timeout(function() {
+          var i = 0
+          while (i <= 4) {
+              angular.element('.img-people')[i].src = 'img/' + i + ".png"
+              i++;
+          }
+      })
 
   })

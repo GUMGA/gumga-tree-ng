@@ -77,10 +77,17 @@ angular.module('yourApp', ['gumga.tree']);
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12">
+                <style>
+                    gumga-tree-ng-child ng-transclude {
+                        display: block;
+                        width: 100%;
+                    }
+                </style>
                 <gumga-tree-ng ng-model="ctrl.pessoas" children="filhos" options="ctrl.options">
-                    <div style="width: 200px">
+                    <div>
+                        <img src="img/moved.png" class="img-people" alt="homem1" width="32" height="32">
                         <span>{{$child.name}}</span>
-                        <button ng-click="ctrl.cliquei($child)" style="float: right;">CLIQUE</button>
+                        <i class="glyphicon glyphicon-plus" ng-click="ctrl.cliquei($child)" style="float: right; cursor: pointer; margin-top: 6px;"></i>
                     </div>
                 </gumga-tree-ng>
               <br>
