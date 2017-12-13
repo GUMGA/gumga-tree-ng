@@ -2,7 +2,7 @@ const GumgaTreeNg = {
     require: ['ngModel'],
     transclude: true,
     template: `
-    <div >
+    <div ng-class="{'gumga-tree-ng-bg-xadrez': !$ctrl.ngModel || $ctrl.ngModel.length <= 0}">
       <div ng-repeat="$value in $ctrl.ngModel">
         <gumga-tree-ng-child child="$value" parent="$ctrl.ngModel" field="{{$ctrl.children}}">
           <ng-transclude></ng-transclude>

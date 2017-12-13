@@ -10,6 +10,7 @@ const TEMPLATE = `
       <span class="glyphicon glyphicon-chevron-down"
             ng-show="$ctrl.getChilds($ctrl.field).length > 0 && ($ctrl.opened)"
             data-ng-click="$ctrl.toggleChild(false);"></span>
+      <span class="space-between" ng-show="$ctrl.getChilds($ctrl.field).length <= 0"></span>
       <ng-transclude></ng-transclude>
     </div>
 
