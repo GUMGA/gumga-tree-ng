@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>gumga-tree-ng</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://gumga.github.io/components/style.css">
+      <link rel="stylesheet" href="dist/gumga-tree-ng.min.css">
+  </head>
+  <body >
+
+    <nav class="navbar navbar-inverse" ng-controller="VersionController as ctrl">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">gumga-tree-ng</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#"
+                 class="dropdown-toggle"
+                 data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ctrl.version}} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li ng-repeat="version in ctrl.versions"><a href="../{{version}}">{{version}}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" ng-controller="Ctrl as ctrl">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="row">
+              <div class="col-xs-12">
+                  <h2>Descrição</h2>
+                  <p>O componente GumgaTreeNg foi criado com o objetivo de poder trabalhar com estrutura de dados de árvores.</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12">
+                  <h3>Observações</h3>
+                  <p>
+                      Com este componente é possível manipular um array de objetos de forma interativa e simples. Utilizando o recurso drag-drop, é possível mover objetos na árvore alterando a forma inicial do array.
+                  </p>
+              </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <h3>Instalação</h3>
+          <pre><code class="prettyprint">// npm
+npm i gumga-tree-ng --save
+
+// bower
+bower install gumga-tree-ng --save
+
+// Injeção do modulo
+angular.module('yourApp', ['gumga.tree']);
+
+// Importação das dependências do componente pelo npm
+//-------------------------------------------------------------//
+&lt;script src="node_modules/gumga-tree-ng/dist/gumga-tree-ng.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="node_modules/gumga-tree-ng/dist/gumga-tree-ng.min.js"&gt;
+
+// Importação das dependências do componente pelo bower
+//-------------------------------------------------------------//
+&lt;script src="bower_components/gumga-tree-ng/dist/gumga-tree-ng.min.js"&gt;&lt;/script>
+&lt;link rel="stylesheet" href="bower_components/gumga-tree-ng/dist/gumga-tree-ng.min.js"&gt;</code></pre>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Como utilizar
+        </div>
+        <div class="panel-body" style="background-color: #ECEFF1;">
+          <div class="row">
+            <div class="col-xs-6">
+                <style>
+                    gumga-tree-ng-child ng-transclude {
+                        display: block;
+                        width: 100%;
+                    }
+                </style>
+                <gumga-tree-ng ng-model="ctrl.pessoas" children="filhos" options="ctrl.options">
+                    <div>
+                        <img style="border-radius: 25px;" ng-src="{{$child.img}}" class="img-people" alt="homem1" width="22" height="22">
+                        <span style="margin-left: 15px">{{$child.name}}</span>
+                        <i class="glyphicon glyphicon-plus" ng-click="ctrl.cliquei($child)" style="float: right; cursor: pointer; margin-top: 3px;"></i>
+                        <div class="label label-success" ng-click="$child.ativo = !$child.ativo" ng-class="{'label-danger': !$child.ativo}" style="cursor: pointer; margin-left: 15px; float:right; margin-right: 25px; margin-top: 3px; width: 60px; font-size: 12px; line-height: 1; font-weight: 400;">{{$child.ativo ? 'ATIVO' : 'INATIVO'}}</div>
+                    </div>
+                </gumga-tree-ng>
+              <br>
+            </div>
+            <div class="col-xs-6">
+                <style>
+                    gumga-tree-ng-child ng-transclude {
+                        display: block;
+                        width: 100%;
+                    }
+                </style>
+                <gumga-tree-ng ng-model="ctrl.outras" children="filhos" options="ctrl.options">
+                    <div>
+                        <img style="border-radius: 25px;" ng-src="{{$child.img}}" class="img-people" alt="homem1" width="22" height="22">
+                        <span style="margin-left: 15px">{{$child.name}}</span>
+                        <i class="glyphicon glyphicon-plus" ng-click="ctrl.cliquei($child)" style="float: right; cursor: pointer; margin-top: 3px;"></i>
+                        <div class="label label-success" ng-click="$child.ativo = !$child.ativo" ng-class="{'label-danger': !$child.ativo}" style="cursor: pointer; margin-left: 15px; float:right; margin-right: 25px; margin-top: 1px; width: 60px font-size: 12px; line-height: 1; font-weight: 400;">{{$child.ativo ? 'ATIVO' : 'INATIVO'}}</div>
+                    </div>
+                </gumga-tree-ng>
+              <br>
+            </div>
+            <div class="col-xs-12">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#html" aria-controls="home" role="tab" data-toggle="tab">HTML</a></li>
+                <li role="presentation"><a href="#js" aria-controls="profile" role="tab" data-toggle="tab">JavaScript</a></li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="html">
+                  <pre><code class="prettyprint" ng-non-bindable>
+    &lt;gumga-tree-ng ng-model="pessoas" children="filhos" options="options">
+        &lt;div style="width: 200px">
+            &lt;span>&#123;&#123;&#36;child.name&#125;&#125;&lt;/span>
+            &lt;button ng-click="cliquei($child)" style="float: right;">CLIQUE&lt;/button>
+        &lt;/div>
+    &lt;/gumga-tree-ng>
+
+
+</code></pre>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="js">
+                  <pre><code class="prettyprint">
+                      
+    angular.module('app', ['gumga.tree']).controller('ctrl', function ($scope, $timeout) {
+
+        $scope.options = {
+            events: {
+                toggle: () => {
+                    console.log("Toggle")
+                }
+            },
+            actions: {
+            }
+        };
+
+        $timeout(function() {
+            $scope.options.actions.toggleAll()
+        })
+
+        $scope.pessoas = [
+            {
+                name: 'Maria',
+                filhos: [
+                    {
+                        name: "Regina",
+                        filhos: [
+                            {
+                                name: "Mateus"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: "Sonia",
+                filhos: [
+                    {
+                        name: "Lucas"
+                    },
+                    {
+                        name: "Mariana"
+                    }
+                ]
+            }
+        ]
+
+
+        $scope.coloca = () => {
+            $scope.pessoas.push({
+                name: "Joaquem"
+            })
+        }
+
+
+        $scope.adiciona = () => {
+            $scope.pessoas[0].filhos.push({
+                name: "Teste1"
+            })
+        }
+
+        $scope.cliquei = ($child) => {
+            $child.filhos.push({
+                name: "Inserindo"
+            })
+            console.log($child)
+        }
+
+    })
+                      
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Atributos
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Parâmetro</th>
+              <th>Tipo</th>
+              <th>Requerido</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ng-model</strong></td>
+              <td><code>Object</code></td>
+              <td>Sim</td>
+              <td>Atributo obrigatório que irá conter o objeto do gumga-tree-ng.</td>
+            </tr>
+            <tr>
+              <td><strong>children</strong></td>
+              <td><code>String</code></td>
+              <td>String</td>
+              <td>Atributo obrigatório que indica qual atributo do objeto é referente aos sub-objetos da árvore.</td>
+            </tr>
+            <tr>
+              <td><strong>options</strong></td>
+              <td><code>Object</code></td>
+              <td>Não</td>
+              <td>Atributo que contém ações e eventos do componente. ex: <pre><code class="prettyprint">$scope.options = {
+    events: {
+        beforeDrop: (obj) => {},
+        afterDrop: (obj) => {},
+        beforeDrag: (obj) => {},
+        afterDrag: (obj) => {},
+        beforeDragLeave: (obj) => {},
+        afterDragLeave: (obj) => {},
+        beforeDragEnd: (obj) => {},
+        afterDragEnd: (obj) => {},
+        beforeDragOver: (obj) => {},
+        afterDragOver: (obj) => {},
+        beforeToggle: (ctrl) => {},
+        toggle: (ctrl) => {}
+    },
+    actions: {
+        disableDrag: false,
+        disableDrop: false,
+        depth: () => {},
+        toggleAll: () => {},
+        collapse: (obj) => {},
+        expand: (obj) => {},
+        removeAll: () => {},
+        scope: () => {}
+    }
+  };</code></pre></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Opções e Eventos
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Parâmetro</th>
+                    <th>Tipo</th>
+                    <th>Requerido</th>
+                    <th>Descrição</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><strong>beforeDrop</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado antes de soltar o elemento arrastado.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>afterDrop</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado depois de soltar o elemento arrastado.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>beforeDrag</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado antes de começar a arrastar o elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>afterDrag</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado depois de começar a arrastar o elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>beforeDragLeave</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado antes de sair de uma zona de drop.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>afterDragLeave</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado ao sair de uma zona de drop.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>beforeDragEnd</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado antes de terminar de arrastar o elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>afterDragEnd</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado depois de terminar de arrastar o elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>beforeDragOver</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado antes de passar sobre outro elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>afterDragOver</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado depois de passar sobre outro elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>toggle</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Evento que é disparado quando abrir ou fechar uma ramificação da árvore.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>disableDrag</strong></td>
+                    <td><code>Boolean</code></td>
+                    <td>Não</td>
+                    <td>
+                        Atributo que permite desabilitar o drag do gumga-tree-ng.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>disableDrop</strong></td>
+                    <td><code>Boolean</code></td>
+                    <td>Não</td>
+                    <td>
+                        Atributo que permite desabilitar o drop do gumga-tree-ng.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>depth</strong></td>
+                    <td><code>Function(&lt;elemento>)</code></td>
+                    <td>Não</td>
+                    <td>
+                        Função que permite verificar o nível de algum elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>toggleAll</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Função que permite alternar se todas ramificações estão abertas ou fechadas.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>collapse</strong></td>
+                    <td><code>Function(&lt;elemento>)</code></td>
+                    <td>Não</td>
+                    <td>
+                        Função que permite fechar a ramificação do elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>expand</strong></td>
+                    <td><code>Function(&lt;elemento>)</code></td>
+                    <td>Não</td>
+                    <td>
+                        Função que permite abrir a ramificação do elemento.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>removeAll</strong></td>
+                    <td><code>Function(&lt;elemento>)</code></td>
+                    <td>Não</td>
+                    <td>
+                        Função que remove todos elementos da árvore.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>removeAll</strong></td>
+                    <td><code>Function</code></td>
+                    <td>Não</td>
+                    <td>
+                        Função que retorna o escopo interno da árvore.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="dist/gumga-tree-ng.min.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="https://gumga.github.io/components/app.js"></script>
+
+  </body>
+</html>
