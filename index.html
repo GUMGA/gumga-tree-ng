@@ -1,146 +1,162 @@
 <!DOCTYPE html>
 <html ng-app="app">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>gumga-tree</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/gumga-tree-ng.css">
+    <link rel="stylesheet"
+          href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="dist/gumga-tree-ng.css">
 </head>
-<body ng-controller="ctrl"><br><br>
 
-<style media="screen">
-    body {
-        background: #f5f5f5;
-    }
+<body ng-controller="ctrl"><br><br>
+    <!-- DEMO ITEM SELECTED -->
+    <style media="screen">
+        body {
+            background: #f5f5f5;
+        }
+        gumga-tree-ng gumga-tree-ng-child .gumga-tree-ng-item-child.tree-selected {
+            background: red;
+        }
 </style>
 
-<main>
-    <div class="container">
+    <main>
+        <div class="container">
 
-        <div class="row">
-            <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
 
-                <gumga-tree-ng ng-model="pessoas" children="filhos" options="options">
-                    <div style="width: 200px">
-                        <span>{{$child.name}}</span>
-                        <button ng-click="cliquei($child)" style="float: right;">CLIQUE</button>
-                    </div>
-                </gumga-tree-ng>
+                    <gumga-tree-ng ng-model="pessoas"
+                                   selected-item="teste"
+                                   children="filhos"
+                                   disabled-drag-drop="true"
+                                   options="options">
+                        <div style="width: 200px">
+                            <span>{{$child.name}}</span>
+                            <button ng-click="cliquei($child)"
+                                    style="float: right;">CLIQUE</button>
+                        </div>
+                    </gumga-tree-ng>
 
-            </div>
+                </div>
 
-            <div class="col-md-6">
+                <div class="col-md-6">
 
-                <pre>{{pessoas|json}}</pre>
+                    <pre>{{teste|json}}</pre>
 
-            </div>
-            <div class="col-mg-2">
-                <button ng-click="coloca()">Coloca</button>
-                <button ng-click="adiciona()">Adiciona</button>
-                <button ng-click="options.actions.toggleAll()">Toggle all</button>
-                <button ng-click="options.actions.removeAll()">Remove all</button>
+                </div>
+                <div class="col-mg-2">
+                    <button ng-click="coloca()">Coloca</button>
+                    <button ng-click="adiciona()">Adiciona</button>
+                    <button ng-click="options.actions.toggleAll()">Toggle all</button>
+                    <button ng-click="options.actions.removeAll()">Remove all</button>
+                </div>
+
             </div>
 
         </div>
+    </main>
 
-    </div>
-</main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="node_modules/angular/angular.min.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="dist/gumga-tree-ng.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-<script type="text/javascript" src="dist/gumga-tree-ng.js"></script>
+    <script type="text/javascript">
+        angular.module('app', ['gumga.tree']).controller('ctrl', function ($scope, $timeout) {
 
-<script type="text/javascript">
-    angular.module('app', ['gumga.tree']).controller('ctrl', function ($scope, $timeout) {
-
-        $scope.options = {
-            events: {
-                toggle: () => {
-                    console.log("gusdbh")
+            $scope.options = {
+                events: {
+                    toggle: () => {
+                        console.log("gusdbh")
+                    }
+                },
+                actions: {
+                    maxDepth: 3
+                },
+                conditions: {
+                    disabled: (child) => {
+                        return true
+                    }
                 }
-            },
-            actions: {
-                maxDepth: 3
-            },
-            conditions: {
-                disabled: (child) => {
-                    return child.name == 'Sonia';
+            };
+
+            $timeout(function () {
+                $scope.options.actions.toggleAll()
+            })
+
+            $scope.pessoas = [
+                {
+                    name: 'Maria',
+                    filhos: [
+                        {
+                            name: "Regina",
+                            filhos: [
+                                {
+                                    name: "Mateus"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Sonia",
+                    filhos: [
+                        {
+                            name: "Lucas"
+                        },
+                        {
+                            name: "Mariana"
+                        }
+                    ]
                 }
+            ]
+
+
+            $scope.coloca = () => {
+                $scope.pessoas.push({
+                    name: "Joaquem",
+                    filhos: [
+                        {
+                            name: "Rose"
+                        },
+                        {
+                            name: "Mora"
+                        }
+                    ]
+                })
             }
-        };
 
-        $timeout(function() {
-            $scope.options.actions.toggleAll()
+
+            $scope.adiciona = () => {
+                $scope.pessoas[0].filhos.push({
+                    name: "Teste1",
+                    filhos: [
+                        {
+                            name: "Teste2"
+                        },
+                        {
+                            name: "Teste3"
+                        }
+                    ]
+                })
+            }
+
+            $scope.cliquei = ($child) => {
+                $child.filhos.push({
+                    name: "Inserindo"
+                })
+                console.log($child)
+            }
+
         })
-
-        $scope.pessoas = [
-            {
-                name: 'Maria',
-                filhos: [
-                    {
-                        name: "Regina",
-                        filhos: [
-                            {
-                                name: "Mateus"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                name: "Sonia",
-                filhos: [
-                    {
-                        name: "Lucas"
-                    },
-                    {
-                        name: "Mariana"
-                    }
-                ]
-            }
-        ]
-
-
-        $scope.coloca = () => {
-            $scope.pessoas.push({
-                name: "Joaquem",
-                filhos: [
-                    {
-                        name: "Rose"
-                    },
-                    {
-                        name: "Mora"
-                    }
-                ]
-            })
-        }
-
-
-        $scope.adiciona = () => {
-            $scope.pessoas[0].filhos.push({
-                name: "Teste1",
-                filhos: [
-                    {
-                        name: "Teste2"
-                    },
-                    {
-                        name: "Teste3"
-                    }
-                ]
-            })
-        }
-
-        $scope.cliquei = ($child) => {
-            $child.filhos.push({
-                name: "Inserindo"
-            })
-            console.log($child)
-        }
-
-    })
-</script>
+    </script>
 
 </body>
+
 </html>

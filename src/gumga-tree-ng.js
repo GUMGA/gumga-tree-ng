@@ -12,6 +12,7 @@ const GumgaTreeNg = {
   `,
     bindings: {
         ngModel: '=',
+        selectedItem: '=?',
         children: '@',
         options: '=?'
     },
@@ -19,20 +20,21 @@ const GumgaTreeNg = {
         let ctrl = this;
 
         ctrl.$onInit = () => {
+            ctrl.enableSelectedItem = $attrs.hasOwnProperty('selectedItem')
             ctrl.options = angular.merge({
                 events: {
-                    beforeDrop: (obj) => {},
-                    afterDrop: (obj) => {},
-                    beforeDrag: (obj) => {},
-                    afterDrag: (obj) => {},
-                    beforeDragLeave: (obj) => {},
-                    afterDragLeave: (obj) => {},
-                    beforeDragEnd: (obj) => {},
-                    afterDragEnd: (obj) => {},
-                    beforeDragOver: (obj) => {},
-                    afterDragOver: (obj) => {},
-                    beforeToggle: (ctrl) => {},
-                    toggle: (ctrl) => {}
+                    beforeDrop: (obj) => { },
+                    afterDrop: (obj) => { },
+                    beforeDrag: (obj) => { },
+                    afterDrag: (obj) => { },
+                    beforeDragLeave: (obj) => { },
+                    afterDragLeave: (obj) => { },
+                    beforeDragEnd: (obj) => { },
+                    afterDragEnd: (obj) => { },
+                    beforeDragOver: (obj) => { },
+                    afterDragOver: (obj) => { },
+                    beforeToggle: (ctrl) => { },
+                    toggle: (ctrl) => { }
                 },
                 actions: {
                     disableDrag: false,

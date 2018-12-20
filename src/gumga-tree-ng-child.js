@@ -3,7 +3,10 @@ const _ = require('lodash');
 const TEMPLATE = `
   <div class="gumga-tree-ng-item">
 
-    <div class="gumga-tree-ng-item-child" draggable="{{!$ctrl.gumgaTreeNgCtrl.options.conditions.disabled($ctrl.child)}}">
+    <div class="gumga-tree-ng-item-child" 
+         ng-click="$ctrl.onClickItem($ctrl.child)"
+         ng-class="{ 'tree-selected': $ctrl.gumgaTreeNgCtrl.enableSelectedItem && $ctrl.isSelected($ctrl.child) }"
+         draggable="{{!$ctrl.gumgaTreeNgCtrl.options.conditions.disabled($ctrl.child)}}">
       <span class="glyphicon glyphicon-chevron-right"
             ng-show="$ctrl.getChilds($ctrl.field).length > 0 && !($ctrl.opened)"
             data-ng-click="$ctrl.toggleChild(true);"></span>
@@ -42,6 +45,18 @@ const GumgaTreeNgChild = {
         let ctrl = this;
 
         $scope.$watch('$ctrl.gumgaTreeNgCtrl.options.actions.toggledAll', value => ctrl.opened = value);
+
+        ctrl.isSelected = (item) => {
+            return angular.equals(item, ctrl.gumgaTreeNgCtrl.selectedItem)
+        }
+
+        ctrl.onClickItem = (item) => {
+            if (ctrl.isSelected(item)) {
+                ctrl.gumgaTreeNgCtrl.selectedItem = null
+            } else {
+                ctrl.gumgaTreeNgCtrl.selectedItem = item
+            }
+        }
 
         const applyScope = (elm) => {
             if (elm && angular.element(elm).scope()) {
@@ -89,8 +104,8 @@ const GumgaTreeNgChild = {
 
 
         const execute = (fn) => {
-            let child = ctrl.gumgaTreeNgCtrl.dragging ?  ctrl.gumgaTreeNgCtrl.$child : ctrl.gumgaTreeNgCtrl.dragging;
-            let parent = ctrl.gumgaTreeNgCtrl.dragging ?  ctrl.gumgaTreeNgCtrl.dragging.$parent : ctrl.gumgaTreeNgCtrl.dragging;
+            let child = ctrl.gumgaTreeNgCtrl.dragging ? ctrl.gumgaTreeNgCtrl.$child : ctrl.gumgaTreeNgCtrl.dragging;
+            let parent = ctrl.gumgaTreeNgCtrl.dragging ? ctrl.gumgaTreeNgCtrl.dragging.$parent : ctrl.gumgaTreeNgCtrl.dragging;
             ctrl.gumgaTreeNgCtrl.options.events[fn]({
                 $child: child,
                 $parent: parent
@@ -166,7 +181,6 @@ const GumgaTreeNgChild = {
                 $timeout(() => {
                     const dropScope = getScopeItemChild(e.target);
                     if (!(ctrl.gumgaTreeNgCtrl.depth(dropScope) >= ctrl.gumgaTreeNgCtrl.options.actions.maxDepth)) {
-
                         ctrl.gumgaTreeNgCtrl.options.events.beforeDrop({
                             $child: dropScope.$child,
                             $parent: dropScope.$parent
@@ -190,9 +204,9 @@ const GumgaTreeNgChild = {
         }
 
         ctrl.toggleChild = opened => {
-            ctrl.gumgaTreeNgCtrl.options.events.beforeToggle({$ctrl: ctrl});
+            ctrl.gumgaTreeNgCtrl.options.events.beforeToggle({ $ctrl: ctrl });
             ctrl.opened = opened;
-            ctrl.gumgaTreeNgCtrl.options.events.toggle({$ctrl: ctrl});
+            ctrl.gumgaTreeNgCtrl.options.events.toggle({ $ctrl: ctrl });
         }
 
         ctrl.getDynamicAttribute = (obj, prop) => _.get(obj, prop);
